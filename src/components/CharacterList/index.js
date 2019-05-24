@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { findHouseImage } from '../../data/findHouseImage';
+import './styles.scss';
 
 const CharacterList = ({ charactersList, filterName }) => {
   return (
@@ -12,21 +13,21 @@ const CharacterList = ({ charactersList, filterName }) => {
           const { id, name, image, house } = character;
           const imageHouse = findHouseImage(house);
           return (
-            <Link to={`character/${id}`} key={id} id={id}>
-              <li className="list__character">
-                <h2 className="character__title">{name}</h2>
+            <li className="character__item" key={id} id={id}>
+              <Link to={`character/${id}`} className="character__link">
                 <div className="character__image-container" style={{ backgroundImage: `url(${image})` }}>
                   <img src={image} alt={name} className="character__image" />
                 </div>
-                {imageHouse ? (
-                  <div className="character__house-container" style={{ backgroundImage: `url(${imageHouse})` }}>
-                    <img src={imageHouse} alt={house} className="house__image" />
-                  </div>
-                ) : (
-                  <p className="no__house">ff</p>
-                )}
-              </li>
-            </Link>
+                <div className="character__details">
+                  <h2 className="character__title">{name}</h2>
+                  {imageHouse ? (
+                    <div className="character__house-container" style={{ backgroundImage: `url(${imageHouse})` }}>
+                      <img src={imageHouse} alt={house} className="house__image" />
+                    </div>
+                  ) : null}
+                </div>
+              </Link>
+            </li>
           );
         })}
     </ul>

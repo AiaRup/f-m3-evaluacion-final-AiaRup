@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Filters from '../Filters';
 import CharacterList from '../CharacterList';
+import './styles.scss';
 
 const Home = ({ getUserSearchValue, charactersList, filterName }) => {
   return (
-    <Fragment>
+    <div className="page__home">
       <header className="page__header">
         <h1 className="page__title">Harry Potter characters</h1>
       </header>
@@ -13,7 +14,7 @@ const Home = ({ getUserSearchValue, charactersList, filterName }) => {
         <Filters getUserSearchValue={getUserSearchValue} filterName={filterName} />
         {charactersList.length ? <CharacterList charactersList={charactersList} filterName={filterName} /> : <p>loading...</p>}
       </main>
-    </Fragment>
+    </div>
   );
 };
 
