@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { findHouseImage } from '../../data/findHouseImage';
@@ -29,14 +29,16 @@ class CharacterCard extends Component {
               ) : (
                 <p className="no__house">I'm lonely, I don't belong to any house...</p>
               )}
-              <p className="charachter__yob">year of birth: {currentCharacter.yearOfBirth ? currentCharacter.yearOfBirth : 'I have eternal life before me'}</p>
+              <p className="charachter__yob">year of birth: {currentCharacter.yearOfBirth ? currentCharacter.yearOfBirth : 'I have eternal life'}</p>
               <p className="charachter__patronus">patronus: {currentCharacter.patronus ? currentCharacter.patronus : 'N/A'}</p>
-              <p className="charachter__state">state: {currentCharacter.alive ? 'vivo' : 'muerto'}</p>
-              <Link to="/">Back to the list</Link>
+              <p className="charachter__state">state: {currentCharacter.alive ? <i className="fas fa-heartbeat" /> : <i className="fas fa-skull-crossbones" />}</p>
+              <Link to="/home" className="back__link">
+                <i className="fas fa-chevron-circle-left" />
+              </Link>
             </div>
           </div>
         ) : (
-          <p className="loading">Loading</p>
+          <p className="loading">Loading...</p>
         )}
       </div>
     );
