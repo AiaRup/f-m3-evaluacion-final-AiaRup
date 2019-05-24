@@ -27,6 +27,10 @@ class App extends Component {
     const { charactersList } = this.state;
     return (
       <div className="page">
+        <div className="page__filters">
+          <label htmlFor="name">Search charachter by name</label>
+          <input type="text" name="name" id="name" placeholder="start typing a character name" />
+        </div>
         <ul className="page__list">
           {charactersList.map(character => (
             <div className="list__character">
