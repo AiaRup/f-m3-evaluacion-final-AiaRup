@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './styles.scss';
 import { fetchCharacters } from '../../services/fetchCharacters';
+import { Route, Switch } from 'react-router-dom';
+import CharacterCard from '../CharacterCard';
+import Home from '../Home';
 
 class App extends Component {
   constructor(props) {
@@ -34,23 +37,10 @@ class App extends Component {
     const { charactersList, filterName } = this.state;
     return (
       <div className="page">
-        <div className="page__filters">
-          <label htmlFor="name">Search charachter by name</label>
-          <input type="text" name="name" id="name" placeholder="start typing a character name" onChange={this.getUserSearchValue} />
-        </div>
-        <ul className="page__list">
-          {charactersList
-            .filter(character => character.name.toUpperCase().includes(filterName.toUpperCase()))
-            .map(character => (
-              <div className="list__character">
-                <h2 className="character__title">{character.name}</h2>
-                <div className="character__image-container">
-                  <img src={character.image} alt={character.name} className="character__image" />
-                </div>
-                <h3 className="character__house">{character.house}</h3>
-              </div>
-            ))}
-        </ul>
+        <Switch>
+          <Route exact path="/" render={() => <Home charactersList={charactersList} filterName={filterName} getUserSearchValue={this.getUserSearchValue} />} />
+          <Route path="/character/:id" render={routeProps => <CharacterCard charactersList={charactersList} id={routeProps.match.params.id} />} />
+        </Switch>
       </div>
     );
   }
