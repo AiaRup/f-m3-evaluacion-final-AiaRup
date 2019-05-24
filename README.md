@@ -1,6 +1,7 @@
 # Aia Rupsom - fairfax-m3-evaluacion-final
 
-This is an app that I prepared in the final exam on module 3, as part of the ADALAB course for training Front-End developers. On the app you can search for series taken from this [API](http://www.tvmaze.com) and you can save favorite series in your personal area.
+This is an app that I prepared in the final exam on module 3, as part of the ADALAB course for training Front-End developers. This app consists of a web page with a list of Harry Potter characters,
+where we can filter by the character's name. The characters info is taken from this [API](https://hp‒api.herokuapp.com/).
 
 ## Quick Start Guide
 
@@ -35,14 +36,12 @@ The folder structure looks like this:
 `- _src
    |- components
    |  |- App
-   |  |- js
-   |  `- scss
-   |     `- components
-   |     `- core
-   |     `- layout
-   |
-   `- templates
-      `- partials
+   |  |- Filters
+   |  |- CharacterList
+   |  |- CharacterCard
+   |  |- Filters
+   |- services
+   |- scss
 
 ```
 
