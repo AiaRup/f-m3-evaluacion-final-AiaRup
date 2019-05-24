@@ -1,0 +1,11 @@
+@mixin back-image($size, $pos1, $pos2) {
+  background-repeat: no-repeat;
+  background-size: $size;
+  background-position: $pos1 $pos2;
+}
+
+@mixin flex-layout($content) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

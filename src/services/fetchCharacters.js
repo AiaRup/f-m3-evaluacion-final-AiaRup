@@ -1,5 +1,6 @@
-const ENDPOINT = 'http://hp-api.herokuapp.com/api/characters';
+const ENDPOINT = 'http://hp-api.herokuapp.com/api/';
+// const ENDPOINT = 'http://hp-api.herokuapp.com/api/characters';
 
-const fetchCharacters = () => fetch(ENDPOINT).then(data => data.json());
+const fetchCharacters = dataUrl => fetch(`${ENDPOINT}${dataUrl}`).then(data => data.json());
 
 export { fetchCharacters };
