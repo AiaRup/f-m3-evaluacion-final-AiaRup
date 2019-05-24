@@ -34,19 +34,19 @@
   }
 }
 
-.character__link {
+.item__link {
   text-decoration: none;
   color: $color-black;
 }
 
-.character__details {
+.item__details {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
 
-.character__image-container {
+.item__image-container {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left top;
@@ -54,19 +54,19 @@
   height: 230px;
 }
 
-.character__image,
-.house__image {
+.item__image,
+.item__house-image {
   height: 0;
   width: 0;
 }
 
-.character__title {
+.item__title {
   margin: 0;
   text-align: left;
   font-size: 20px;
 }
 
-.character__house-container {
+.item__house-container {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

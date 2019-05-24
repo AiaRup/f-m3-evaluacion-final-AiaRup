@@ -1,0 +1,42 @@
+@import '../../scss/colors';
+
+.character__card-container {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character__card {
+  width: 80vw;
+  margin: 0 auto;
+  color: $color-white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.character__image-container {
+}
+.character__title {
+}
+.character__image,
+.house__image {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+.character__house-container {
+}
+
+.no__house {
+}
+.charachter__yob {
+}
+.charachter__patronus {
+}
+.charachter__state {
+}
+.loading {
+}

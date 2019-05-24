@@ -14,15 +14,15 @@ const CharacterList = ({ charactersList, filterName }) => {
           const imageHouse = findHouseImage(house);
           return (
             <li className="character__item" key={id} id={id}>
-              <Link to={`character/${id}`} className="character__link">
-                <div className="character__image-container" style={{ backgroundImage: `url(${image})` }}>
-                  <img src={image} alt={name} className="character__image" />
+              <Link to={`character/${id}`} className="item__link">
+                <div className="item__image-container" style={{ backgroundImage: `url(${image})` }}>
+                  <img src={image} alt={name} className="item__image" />
                 </div>
-                <div className="character__details">
-                  <h2 className="character__title">{name}</h2>
+                <div className="item__details">
+                  <h2 className="item__title">{name}</h2>
                   {imageHouse ? (
-                    <div className="character__house-container" style={{ backgroundImage: `url(${imageHouse})` }}>
-                      <img src={imageHouse} alt={house} className="house__image" />
+                    <div className="item__house-container" style={{ backgroundImage: `url(${imageHouse})` }}>
+                      <img src={imageHouse} alt={house} className="item__house-image" />
                     </div>
                   ) : null}
                 </div>
