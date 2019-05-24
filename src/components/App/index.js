@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './styles.scss';
 import { fetchCharacters } from '../../services/fetchCharacters';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import CharacterCard from '../CharacterCard';
 import Home from '../Home';
-import background from '../../images/background.jpg';
 
 class App extends Component {
   constructor(props) {
@@ -50,10 +49,10 @@ class App extends Component {
     const { charactersList, filterName } = this.state;
     return (
       <div className="page">
-        {/* <div className="page" style={{ backgroundImage: `url(${background})` }}> */}
         <Switch>
-          <Route exact path="/" render={() => <Home charactersList={charactersList} filterName={filterName} getUserSearchValue={this.getUserSearchValue} />} />
+          <Route exact path="/home" render={() => <Home charactersList={charactersList} filterName={filterName} getUserSearchValue={this.getUserSearchValue} />} />
           <Route path="/character/:id" render={routeProps => <CharacterCard charactersList={charactersList} id={routeProps.match.params.id} resetCharacterList={this.resetCharacterList} />} />
+          <Redirect from="/" to="/home" />
         </Switch>
       </div>
     );

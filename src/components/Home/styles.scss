@@ -1,5 +1,6 @@
 .page__home {
-  max-width: 1000px;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .page__header {
@@ -8,7 +9,11 @@
 
 .page__title {
   margin: 0 auto 10px;
-}
-
-.page__main {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  height: 0;
+  overflow: hidden;
+  padding-top: 100px;
+  width: 80vw;
 }

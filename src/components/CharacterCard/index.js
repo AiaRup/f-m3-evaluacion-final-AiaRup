@@ -10,7 +10,7 @@ class CharacterCard extends Component {
 
   render() {
     const { charactersList, id } = this.props;
-    const currentCharacter = charactersList[id];
+    const currentCharacter = charactersList.find(person => person.id === parseInt(id));
     return (
       <Fragment>
         {currentCharacter ? (
@@ -26,7 +26,6 @@ class CharacterCard extends Component {
             ) : (
               <p className="no__house">I'm lonely, I don't belong to any house...</p>
             )}
-            {/* <p className="character__house">house: {currentCharacter.house ? currentCharacter.house : "I'm lonely, I don't belong to any house..."}</p> */}
             <p className="charachter__yob">year of birth: {currentCharacter.yearOfBirth ? currentCharacter.yearOfBirth : 'I have eternal life before me'}</p>
             <p className="charachter__patronus">patronus: {currentCharacter.patronus ? currentCharacter.patronus : 'N/A'}</p>
             <p className="charachter__state">state: {currentCharacter.alive ? 'vivo' : 'muerto'}</p>
