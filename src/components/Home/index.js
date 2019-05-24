@@ -10,7 +10,7 @@ const Home = ({ getUserSearchValue, charactersList, filterName }) => {
         <h1 className="page__title">Harry Potter characters</h1>
       </header>
       <main className="page__main">
-        <Filters getUserSearchValue={getUserSearchValue} />
+        <Filters getUserSearchValue={getUserSearchValue} filterName={filterName}/>
         <CharacterList charactersList={charactersList} filterName={filterName} />
       </main>
     </Fragment>

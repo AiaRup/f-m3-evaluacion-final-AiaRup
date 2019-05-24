@@ -13,10 +13,16 @@ class App extends Component {
       filterName: ''
     };
     this.getUserSearchValue = this.getUserSearchValue.bind(this);
+    this.resetCharacterList = this.resetCharacterList.bind(this);
   }
 
   componentDidMount() {
-    this.fetcNewCharacters();
+    const localList = JSON.parse(localStorage.getItem('characterList'));
+    if (!localList || !localList.length) {
+      this.fetcNewCharacters();
+    } else {
+      this.setState({ charactersList: localList });
+    }
   }
 
   fetcNewCharacters() {
@@ -24,7 +30,9 @@ class App extends Component {
       const newResults = results.map((item, index) => {
         return { ...item, id: index };
       });
-      this.setState({ charactersList: newResults });
+      this.setState({ charactersList: newResults }, () => {
+        localStorage.setItem('characterList', JSON.stringify(this.state.charactersList));
+      });
     });
   }
 
@@ -33,13 +41,17 @@ class App extends Component {
     this.setState({ filterName: value });
   }
 
+  resetCharacterList() {
+    this.setState({ filterName: '' });
+  }
+
   render() {
     const { charactersList, filterName } = this.state;
     return (
       <div className="page">
         <Switch>
           <Route exact path="/" render={() => <Home charactersList={charactersList} filterName={filterName} getUserSearchValue={this.getUserSearchValue} />} />
-          <Route path="/character/:id" render={routeProps => <CharacterCard charactersList={charactersList} id={routeProps.match.params.id} />} />
+          <Route path="/character/:id" render={routeProps => <CharacterCard charactersList={charactersList} id={routeProps.match.params.id} resetCharacterList={this.resetCharacterList} />} />
         </Switch>
       </div>
     );
