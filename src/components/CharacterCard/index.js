@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { findHouseImage } from '../../data/findHouseImage';
 import './styles.scss';
-import backgroundImage from '../../images/background.jpg';
+// import backgroundImage from '../../images/background.jpg';
 
 class CharacterCard extends Component {
   componentWillUnmount() {
@@ -14,7 +14,11 @@ class CharacterCard extends Component {
     const { charactersList, id } = this.props;
     const currentCharacter = charactersList.find(person => person.id === parseInt(id));
     return (
-      <div className="character__card-container" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="character__card-container">
+        {/* <div className="character__card-container" style={{ backgroundImage: `url(${backgroundImage})` }}> */}
+        <Link to="/home" className="back__link">
+          <i className="fas fa-chevron-circle-left" />
+        </Link>
         {currentCharacter ? (
           <div className="character__card">
             <div className="character__image-container" style={{ backgroundImage: `url(${currentCharacter.image})` }}>
@@ -29,12 +33,9 @@ class CharacterCard extends Component {
               ) : (
                 <p className="no__house">I'm lonely, I don't belong to any house...</p>
               )}
-              <p className="charachter__yob">year of birth: {currentCharacter.yearOfBirth ? currentCharacter.yearOfBirth : 'I have eternal life'}</p>
+              <p className="charachter__yob">year of birth: {currentCharacter.yearOfBirth ? currentCharacter.yearOfBirth : 'I have eternal life!'}</p>
               <p className="charachter__patronus">patronus: {currentCharacter.patronus ? currentCharacter.patronus : 'N/A'}</p>
               <p className="charachter__state">state: {currentCharacter.alive ? <i className="fas fa-heartbeat" /> : <i className="fas fa-skull-crossbones" />}</p>
-              <Link to="/home" className="back__link">
-                <i className="fas fa-chevron-circle-left" />
-              </Link>
             </div>
           </div>
         ) : (
