@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.79e7f76d.chunk.css",
-    "main.js": "./static/js/main.44acdbaf.chunk.js",
-    "main.js.map": "./static/js/main.44acdbaf.chunk.js.map",
+    "main.css": "./static/css/main.81daafd7.chunk.css",
+    "main.js": "./static/js/main.3d6f6f7b.chunk.js",
+    "main.js.map": "./static/js/main.3d6f6f7b.chunk.js.map",
     "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
     "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
-    "static/js/2.f97e80fd.chunk.js": "./static/js/2.f97e80fd.chunk.js",
-    "static/js/2.f97e80fd.chunk.js.map": "./static/js/2.f97e80fd.chunk.js.map",
+    "static/js/2.2877025c.chunk.js": "./static/js/2.2877025c.chunk.js",
+    "static/js/2.2877025c.chunk.js.map": "./static/js/2.2877025c.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.d7d78464916daf994002b46d894df0a6.js": "./precache-manifest.d7d78464916daf994002b46d894df0a6.js",
+    "precache-manifest.df2ba27bdaa787d3ba14e877d796e068.js": "./precache-manifest.df2ba27bdaa787d3ba14e877d796e068.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.79e7f76d.chunk.css.map": "./static/css/main.79e7f76d.chunk.css.map"
+    "static/css/main.81daafd7.chunk.css.map": "./static/css/main.81daafd7.chunk.css.map",
+    "static/media/background.jpg": "./static/media/background.90e1de3a.jpg",
+    "static/media/gryffindor.jpg": "./static/media/gryffindor.eaf993dd.jpg",
+    "static/media/header.png": "./static/media/header.bc2d9fbd.png",
+    "static/media/hufflepuff.jpg": "./static/media/hufflepuff.ce66f10b.jpg",
+    "static/media/ravenclaw.jpg": "./static/media/ravenclaw.b1114929.jpg",
+    "static/media/slytherin.jpeg": "./static/media/slytherin.ec62eb1e.jpeg"
   }
 }
