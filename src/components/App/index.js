@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   fetcNewCharacters() {
-    fetchCharacters('characters').then(results => {
+    fetchCharacters('').then(results => {
       const newResults = results.map((item, index) => {
         return { ...item, id: index };
       });
