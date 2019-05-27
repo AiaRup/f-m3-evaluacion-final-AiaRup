@@ -15,7 +15,7 @@ const Home = ({ getUserSearchValue, charactersList, filterName }) => {
       </header>
       <main className="page__main">
         <Filters getUserSearchValue={getUserSearchValue} filterName={filterName} />
-        {charactersList.length ? <CharacterList charactersList={charactersList} filterName={filterName} /> : <p>loading...</p>}
+        {charactersList.length ? <CharacterList charactersList={charactersList} filterName={filterName} /> : <p>Loading Character List...</p>}
       </main>
     </div>
   );

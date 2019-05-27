@@ -1,7 +1,7 @@
 # Aia Rupsom - fairfax-m3-evaluacion-final
 
 This is an app that I prepared in the final exam on module 3, as part of the ADALAB course for training Front-End developers. This app consists of a web page with a list of Harry Potter characters,
-where we can filter by the character's name. The characters info is taken from this [API](https://hp‒api.herokuapp.com/).
+where you can filter by the character's name. The characters info is taken from this [API](https://hp‒api.herokuapp.com/).
 
 ## Quick Start Guide
 
@@ -40,8 +40,11 @@ The folder structure looks like this:
    |  |- CharacterList
    |  |- CharacterCard
    |  |- Filters
+   |  |- Home
    |- services
+   |- data
    |- scss
+   |- images
 
 ```
 

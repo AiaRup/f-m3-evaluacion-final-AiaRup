@@ -12,9 +12,6 @@
 
 .page__title {
   margin: 0 auto 10px;
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  // background-position: center center;
   @include back-image(contain, center, center);
   height: 0;
   overflow: hidden;

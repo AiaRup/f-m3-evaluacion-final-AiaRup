@@ -3,7 +3,6 @@ import './styles.scss';
 import { fetchCharacters } from '../../services/fetchCharacters';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import CharacterCard from '../CharacterCard';
-import HouseCard from '../HouseCard';
 import Home from '../Home';
 import backgroundImage from '../../images/background.jpg';
 
@@ -28,7 +27,7 @@ class App extends Component {
   }
 
   fetcNewCharacters() {
-    fetchCharacters('').then(results => {
+    fetchCharacters().then(results => {
       const newResults = results.map((item, index) => {
         return { ...item, id: index };
       });
@@ -54,7 +53,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/home" render={() => <Home charactersList={charactersList} filterName={filterName} getUserSearchValue={this.getUserSearchValue} />} />
           <Route path="/character/:id" render={routeProps => <CharacterCard charactersList={charactersList} id={routeProps.match.params.id} resetCharacterList={this.resetCharacterList} />} />
-          <Route path="/house/:name" render={routeProps => <HouseCard houseName={routeProps.match.params.name} />} />
           <Redirect from="/" to="/home" />
         </Switch>
       </div>

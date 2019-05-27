@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { findHouseImage } from '../../data/findHouseImage';
 import './styles.scss';
-// import backgroundImage from '../../images/background.jpg';
 
 class CharacterCard extends Component {
   componentWillUnmount() {
@@ -15,7 +14,6 @@ class CharacterCard extends Component {
     const currentCharacter = charactersList.find(person => person.id === parseInt(id));
     return (
       <div className="character__card-container">
-        {/* <div className="character__card-container" style={{ backgroundImage: `url(${backgroundImage})` }}> */}
         <Link to="/home" className="back__link">
           <i className="fas fa-chevron-circle-left" />
         </Link>
@@ -39,7 +37,7 @@ class CharacterCard extends Component {
             </div>
           </div>
         ) : (
-          <p className="loading">Loading...</p>
+          <p className="loading">Loading Character Info...</p>
         )}
       </div>
     );
