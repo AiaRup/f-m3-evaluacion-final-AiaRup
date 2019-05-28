@@ -4,6 +4,7 @@ import { fetchCharacters } from '../../services/fetchCharacters';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import CharacterCard from '../CharacterCard';
 import Home from '../Home';
+import Navbar from '../Navbar';
 import backgroundImage from '../../images/background.jpg';
 
 class App extends Component {
@@ -11,10 +12,14 @@ class App extends Component {
     super(props);
     this.state = {
       charactersList: [],
-      filterName: ''
+      filterName: '',
+      houseCharacterList: []
     };
+    this.promises = [];
+    this.houses = ['gryffindor', 'hufflepuff', 'ravenclaw', 'slytherin'];
     this.getUserSearchValue = this.getUserSearchValue.bind(this);
     this.resetCharacterList = this.resetCharacterList.bind(this);
+    this.fetcNewCharacters = this.fetcNewCharacters.bind(this);
   }
 
   componentDidMount() {
@@ -27,13 +32,24 @@ class App extends Component {
   }
 
   fetcNewCharacters() {
-    fetchCharacters().then(results => {
+    fetchCharacters('').then(results => {
       const newResults = results.map((item, index) => {
         return { ...item, id: index };
       });
       this.setState({ charactersList: newResults }, () => {
         localStorage.setItem('characterList', JSON.stringify(this.state.charactersList));
       });
+    });
+    //  fetch all data of the houses
+    for (const house of this.houses) {
+      this.promises.push(fetchCharacters(`/house/${house}`));
+    }
+    Promise.all(this.promises).then(responses => {
+      for (const response of responses) {
+        this.setState(prevState => {
+          return { houseCharacterList: [...prevState.houseCharacterList, { house: response[0].house, list: response }] };
+        });
+      }
     });
   }
 
@@ -50,6 +66,7 @@ class App extends Component {
     const { charactersList, filterName } = this.state;
     return (
       <div className="page" style={{ backgroundImage: `url(${backgroundImage})` }}>
+        <Navbar />
         <Switch>
           <Route exact path="/home" render={() => <Home charactersList={charactersList} filterName={filterName} getUserSearchValue={this.getUserSearchValue} />} />
           <Route path="/character/:id" render={routeProps => <CharacterCard charactersList={charactersList} id={routeProps.match.params.id} resetCharacterList={this.resetCharacterList} />} />
